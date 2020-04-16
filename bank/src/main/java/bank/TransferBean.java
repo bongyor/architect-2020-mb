@@ -1,5 +1,7 @@
 package bank;
 
+import exception.IllegalCreditException;
+
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
@@ -14,6 +16,8 @@ public class TransferBean {
     @Inject
     private TransferRepository transferRepository;
 
+    @Inject AccountBean accountBean;
+
     @Transactional
     public Transfer createTransfer(CreateTransferCommand command) {
         var transfer = new Transfer();
@@ -22,9 +26,14 @@ public class TransferBean {
         transfer.setAmount(command.getAmount());
         var created = transferRepository.save(transfer);
 
-       // TODO
+        try {
+            accountBean.credit(command.getSrc(), -command.getAmount());
+            accountBean.credit(command.getDest(), command.getAmount());
+            created.setResult("ok");
+        } catch (IllegalCreditException e) {
+            created.setResult("error");
+        }
 
-        created.setResult("ok");
         return created;
     }
 

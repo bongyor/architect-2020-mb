@@ -15,9 +15,9 @@ Accept: application/json
 Content-Type: application/json
 
 {
- "src": 1,
- "dest": 2,
-  "amount": 1500
+ "src": 2,
+ "dest": 1,
+  "amount": 500
 }
 
 ###
