@@ -1,11 +1,11 @@
 ### List employees
 
-GET http://localhost:8080/employees/api/employees
+GET http://bubuka:8080/employees/api/employees
 Accept: application/json
 
 ### Create employee
 
-POST http://localhost:8080/employees/api/employees
+POST http://bubuka:8080/employees/api/employees
 Accept: application/json
 Content-Type: application/json
 

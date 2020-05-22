@@ -1,5 +1,7 @@
 package employees;
 
+import lombok.val;
+
 import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -21,7 +23,7 @@ public class EmployeeResource {
 
     @POST
     public Response createEmployee(CreateEmployeeCommand command) {
-        var employee = employeeBean.createEmployee(command);
+        val employee = employeeBean.createEmployee(command);
         return Response.status(201).entity(employee).build();
     }
 

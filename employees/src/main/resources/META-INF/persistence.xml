@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence"
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
-    http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
-    <persistence-unit name="pu" transaction-type="JTA">
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
+	version="2.1">
+
+	<persistence-unit name="employees-ejbPUU" transaction-type="JTA">
         <jta-data-source>jdbc/BankDS</jta-data-source>
-        <exclude-unlisted-classes>false</exclude-unlisted-classes>
-        <properties>
-            <property name="hibernate.show_sql" value="true"/>
-            <!-- <property name="hibernate.hbm2ddl.auto" value="update"/> -->
-        </properties>
+		<exclude-unlisted-classes>false</exclude-unlisted-classes>
+		<shared-cache-mode>NONE</shared-cache-mode>
+		<!--property name="eclipselink.query-results-cache" value="false"/ -->
+		<properties>
+			<property name="eclipselink.logging.level" value="INFO"/>
+		</properties>
     </persistence-unit>
+
 </persistence>
