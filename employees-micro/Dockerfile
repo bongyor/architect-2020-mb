@@ -1,4 +1,4 @@
-FROM adoptopenjdk:13-jre-hotspot
+FROM adoptopenjdk:8-jre-hotspot
 
 RUN mkdir /opt/app
 ADD target/employees-micro-thorntail.jar /opt/app/employees.jar
