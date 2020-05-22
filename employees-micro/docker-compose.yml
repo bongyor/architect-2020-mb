@@ -1,0 +1,16 @@
+version: "3.3"
+services:
+  employees-db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=masterkey
+      - POSTGRES_USER=nbadmin
+      - POSTGRES_DB=employees
+
+  employees-micro:
+    build:
+      context: .
+    environment:
+      - THORNTAIL.DATASOURCES.DATA_DASH_SOURCES.EMPLOYEESDS.CONNECTION_DASH_URL=jdbc:postgresql://employees-db/employees
+    ports:
+      - 8080:8080
