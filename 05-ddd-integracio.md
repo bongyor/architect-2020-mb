@@ -119,6 +119,7 @@
 * Hogyan kezelsz API verziókat?
 * Milyen teszt eszközöket ismersz?
 
+### Említendő
 
 * OpenAPI
 * Postman
