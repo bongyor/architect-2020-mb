@@ -9,3 +9,5 @@ feladatból áll.
 [Perzisztens réteg az architektúrában](02-perzisztencia.md)
 
 [Modularizáció](03-modularizacio.md)
+
+[Elosztott rendszerek](04-elosztott-rendszerek.md)

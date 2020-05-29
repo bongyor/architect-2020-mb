@@ -253,7 +253,7 @@ CMD ["java", "-Djava.net.preferIPv4Stack=true", "-Djava.net.preferIPv4Addresses=
 ```
 
 A `preferIPv4Stack` hiányakor protokollra vonatkozó hibát dobott. A 14-es Java esetén zip fájlt nem tudott
-kitömöríteni, és a fenti hibát dobta. Az `ulimit` is a zip fájlos hiba miatt kerülr bele.
+kitömöríteni, és a fenti hibát dobta. Az `ulimit` is a zip fájlos hiba miatt került bele.
 
 Majd a következő paranccsal hozzuk létre az image-t a projekt gyökérkönyvtárában:
 
@@ -264,11 +264,11 @@ docker build -t employees-micro .
 Majd indítsuk el az image-t:
 
 ```
-docker run -d --name employees-micro -p 8088:8080 --link employeesdb:employeesdb -e THORNTAIL.DATASOURCES.DATA_DASH_SOURCES.EMPLOYEESDS.CONNECTION_DASH_URL=jdbc:postgresql://employeesdb/postgres employees-micro
+docker run -d --name employees-micro -p 8080:8080 --link employeesdb:employeesdb -e THORNTAIL.DATASOURCES.DATA_DASH_SOURCES.EMPLOYEESDS.CONNECTION_DASH_URL=jdbc:postgresql://employeesdb/postgres employees-micro
 ```
 
 Látható, hogy a parancsban az `employeesdb` konténert belinkeljük a `employeesdb` hostnévre, tehát ezen fogja elérni az alkalmazás konténere a másik konténert.
 A `-e` kapcsolóval felülírjuk a `project-defaults.yml` fájl tartalmát, hogy ne `localhost`-hoz, hanem a `employeesdb` nevű szerverhez kapcsolódjon az alkalmazás.
-A konténer `8080`-as portját kihozzuk a host 8080-as portjára, így elérhetjük a `http://localhost:8080/api/employees` címen.
+A konténer `8080`-as portját kihozzuk a host `8080`-as portjára, így elérhetjük a `http://localhost:8080/api/employees` címen.
 
 ![Alkalmazás architektúrája](images/employees-micro-arch.jpg)
