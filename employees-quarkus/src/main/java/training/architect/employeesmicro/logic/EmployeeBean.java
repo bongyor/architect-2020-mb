@@ -6,12 +6,12 @@ import training.architect.employeesmicro.dao.EmployeeRepository;
 import training.architect.employeesmicro.dto.CreateEmployeeCommand;
 import training.architect.employeesmicro.dto.EmployeeDto;
 
-import javax.enterprise.context.ApplicationScoped;
+import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.transaction.Transactional;
 import java.util.List;
 
-@ApplicationScoped
+@RequestScoped
 public class EmployeeBean {
 
     @Inject
@@ -22,7 +22,6 @@ public class EmployeeBean {
 
     public List<EmployeeDto> listEmployees() {
         val employees = employeeMapper.employeesToDtos(employeeRepository.listAll());
-        System.out.println("X: " + employeeRepository.listAll());
         System.out.println("List employees: " + employees);
         return employees;
     }
